@@ -1,10 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+package Volatile;
+
+import Records.Boiler;
+
 public class Main {
     public static volatile boolean flag=false;
+    static {
+        System.out.println("A static block");
+
+    }
+    static {
+        int val=10;
+
+        System.out.println("A static block 2");
+
+    }{
+         int value=10;
+
+        System.out.println("A block");
+
+    }
 
 
     public static void main(String[] args) throws InterruptedException {
+        Boiler boil=new Boiler("Porche",(10000000L));
+
+        System.out.println(boil.company());
+        System.out.println(boil.price());
+       System.out.println( boil.toString());
+
+
+
         Thread.Builder thread=Thread.ofVirtual().name("VirtualThread");
        Thread t1=new Thread(()->{
 
